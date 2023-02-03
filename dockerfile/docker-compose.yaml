@@ -1,0 +1,76 @@
+version: '3.5'
+# 网络配置
+networks:
+  backend:
+    driver: bridge # 设置网络模式
+
+# 服务容器配置
+services:
+  mysql:
+    image: mysql
+    container_name: mysql
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      - TZ=Asia/Shanghai
+      - MYSQL_PASSWORD=123456              # 设置 Mysql 用户密码
+      - MYSQL_ROOT_PASSWORD=123456    # 设置 Mysql root 用户密码
+    privileged: true
+    volumes:
+      - ./mysql:/var/lib/mysql
+    ports:
+      - "13306:3306"                          # 设置容器16306端口映射指定宿主机端口
+    restart: always
+
+  redis:
+    image: redis
+    container_name: redis
+    environment:
+      - TZ=Asia/Shanghai
+    privileged: true
+    volumes:
+      - ./redis:/data
+    ports:
+      - "16379:6379"                          # 设置容器16379端口映射指定宿主机端口
+      #networks:
+      #- backend
+    restart: always
+
+  etcd:
+    image: bitnami/etcd
+    container_name: etcd
+    environment:
+      - TZ=Asia/Shanghai
+      - ALLOW_NONE_AUTHENTICATION=yes
+      - ETCD_ADVERTISE_CLIENT_URLS=http://127.0.0.1:2379
+    ports: # 设置端口映射 Etcd 服务映射宿主机端口号，可在宿主机127.0.0.1:12379访问
+      - "12379:2379"
+    restart: always
+
+  etcdManage:
+    image: evildecay/etcdkeeper
+    container_name: etcdManage
+    environment:
+      - TZ=Asia/Shanghai
+    ports:
+      - "7000:8080"                    # 设置容器8080端口映射指定宿主机端口，用于宿主机访问可视化web
+    depends_on: # 依赖容器
+      - etcd                                          # 在 etcd 服务容器启动后启动
+    restart: always
+
+  #分布式事务解决方案DTM
+#  dtm:
+#    image: yedf/dtm
+#    environment:
+#      - TZ=Asia/Shanghai
+#    entrypoint:
+#      - "/app/dtm/dtm"
+#      - "-c=/app/dtm/configs/config.yaml"
+#    privileged: true
+#    volumes: #把本地文件挂载到容器里的指定的目录
+#      - ./dtm/config.yml:/app/dtm/configs/config.yaml # 将 dtm 配置文件挂载到容器里
+#    ports:
+#      - "36789:36789"  # DTM HTTP 协议端口号
+#      - "36790:36790"  # DTM gRPC 协议端口号
+#      #networks:
+#      #- backend
+#    restart: always
