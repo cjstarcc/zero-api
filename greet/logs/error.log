@@ -1,0 +1,83 @@
+{"@timestamp":"2023-02-03 17:45:04","caller":"internal/log.go:57","content":"(/from/me - 172.20.8.227:58188) runtime error: invalid memory address or nil pointer dereference\ngoroutine 79 [running]:\nruntime/debug.Stack()\n\t/usr/local/go/src/runtime/debug/stack.go:24 +0x65\ngithub.com/zeromicro/go-zero/rest/handler.RecoverHandler.func1.1()\n\t/home/xsg/go/pkg/mod/github.com/zeromicro/go-zero@v1.4.4/rest/handler/recoverhandler.go:16 +0x66\npanic({0x19b7820, 0x2cd4ab0})\n\t/usr/local/go/src/runtime/panic.go:884 +0x212\ngreet/internal/middleware.(*I18nMiddleware).Handle.func1({0x1ee1bf0, 0xc000690480}, 0xc000876a00)\n\t/home/xsg/zero/greet/internal/middleware/i18nMiddleware.go:67 +0x140\nnet/http.HandlerFunc.ServeHTTP(0xc000673cc0?, {0x1ee1bf0?, 0xc000690480?}, 0xc0005e21e0?)\n\t/usr/local/go/src/net/http/server.go:2109 +0x2f\ngithub.com/zeromicro/go-zero/rest/handler.Authorize.func1.1({0x1ee1bf0, 0xc000690480}, 0xc000876900)\n\t/home/xsg/go/pkg/mod/github.com/zeromicro/go-zero@v1.4.4/rest/handler/authhandler.go:81 +0x4b3\nnet/http.HandlerFunc.ServeHTTP(0x0?, {0x1ee1bf0?, 0xc000690480?}, 0x486b66?)\n\t/usr/local/go/src/net/http/server.go:2109 +0x2f\ngithub.com/zeromicro/go-zero/rest/handler.GunzipHandler.func1({0x1ee1bf0, 0xc000690480}, 0xc000876900)\n\t/home/xsg/go/pkg/mod/github.com/zeromicro/go-zero@v1.4.4/rest/handler/gunziphandler.go:26 +0xe9\nnet/http.HandlerFunc.ServeHTTP(0xedb6ecea0?, {0x1ee1bf0?, 0xc000690480?}, 0x159a65218?)\n\t/usr/local/go/src/net/http/server.go:2109 +0x2f\ngithub.com/zeromicro/go-zero/rest/handler.MaxBytesHandler.func2.1({0x1ee1bf0?, 0xc000690480?}, 0x2d052c0?)\n\t/home/xsg/go/pkg/mod/github.com/zeromicro/go-zero@v1.4.4/rest/handler/maxbyteshandler.go:24 +0xff\nnet/http.HandlerFunc.ServeHTTP(0x1?, {0x1ee1bf0?, 0xc000690480?}, 0x1?)\n\t/usr/local/go/src/net/http/server.go:2109 +0x2f\ngithub.com/zeromicro/go-zero/rest/handler.MetricHandler.func1.1({0x1ee1bf0, 0xc000690480}, 0xc000086f20?)\n\t/home/xsg/go/pkg/mod/github.com/zeromicro/go-zero@v1.4.4/rest/handler/metrichandler.go:21 +0xd5\nnet/http.HandlerFunc.ServeHTTP(0xc000086f20?, {0x1ee1bf0?, 0xc000690480?}, 0x1d31d90?)\n\t/usr/local/go/src/net/http/server.go:2109 +0x2f\ngithub.com/zeromicro/go-zero/rest/handler.RecoverHandler.func1({0x1ee1bf0?, 0xc000690480?}, 0xc000412000?)\n\t/home/xsg/go/pkg/mod/github.com/zeromicro/go-zero@v1.4.4/rest/handler/recoverhandler.go:21 +0x83\nnet/http.HandlerFunc.ServeHTTP(0xc000412050?, {0x1ee1bf0?, 0xc000690480?}, 0xc00040e060?)\n\t/usr/local/go/src/net/http/server.go:2109 +0x2f\ngithub.com/zeromicro/go-zero/rest/handler.(*timeoutHandler).ServeHTTP.func1()\n\t/home/xsg/go/pkg/mod/github.com/zeromicro/go-zero@v1.4.4/rest/handler/timeouthandler.go:79 +0x7c\ncreated by github.com/zeromicro/go-zero/rest/handler.(*timeoutHandler).ServeHTTP\n\t/home/xsg/go/pkg/mod/github.com/zeromicro/go-zero@v1.4.4/rest/handler/timeouthandler.go:73 +0x350\n","level":"error","span":"16652156eb13c6b6","trace":"c94a3fd32cb557f39a1fba44f28108c2"}
+{"@timestamp":"2023-02-03 17:45:04","caller":"handler/loghandler.go:162","content":"[HTTP] 500 - GET /from/me - 172.20.8.227:58188 - Apifox/1.0.0 (https://www.apifox.cn)\nGET /from/me HTTP/1.1\r\nHost: 172.20.8.158:8888\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nAuthorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzU1MDM3NzUsImlhdCI6MTY3NTQxNzM3NSwidWlkIjoxfQ.UxJk2J2qU7N9iGVX6UwS6yJs_ny5hs9YEvvx2UQJ09Q\r\nConnection: keep-alive\r\nUser-Agent: Apifox/1.0.0 (https://www.apifox.cn)\r\n\r\n","duration":"0.2ms","level":"error","span":"16652156eb13c6b6","trace":"c94a3fd32cb557f39a1fba44f28108c2"}
+2023-02-03 17:46:19	[31;1m error [0m	(/from/me - 172.20.8.227:50869) runtime error: invalid memory address or nil pointer dereference
+goroutine 69 [running]:
+runtime/debug.Stack()
+	/usr/local/go/src/runtime/debug/stack.go:24 +0x65
+github.com/zeromicro/go-zero/rest/handler.RecoverHandler.func1.1()
+	/home/xsg/go/pkg/mod/github.com/zeromicro/go-zero@v1.4.4/rest/handler/recoverhandler.go:16 +0x66
+panic({0x19b7820, 0x2cd4ab0})
+	/usr/local/go/src/runtime/panic.go:884 +0x212
+greet/internal/middleware.(*I18nMiddleware).Handle.func1({0x1ee1bf0, 0xc0003a5ce0}, 0xc000343e00)
+	/home/xsg/zero/greet/internal/middleware/i18nMiddleware.go:67 +0x140
+net/http.HandlerFunc.ServeHTTP(0xc000253cc0?, {0x1ee1bf0?, 0xc0003a5ce0?}, 0xc000052a20?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+github.com/zeromicro/go-zero/rest/handler.Authorize.func1.1({0x1ee1bf0, 0xc0003a5ce0}, 0xc000343d00)
+	/home/xsg/go/pkg/mod/github.com/zeromicro/go-zero@v1.4.4/rest/handler/authhandler.go:81 +0x4b3
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x1ee1bf0?, 0xc0003a5ce0?}, 0x0?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+github.com/zeromicro/go-zero/rest/handler.GunzipHandler.func1({0x1ee1bf0, 0xc0003a5ce0}, 0xc000343d00)
+	/home/xsg/go/pkg/mod/github.com/zeromicro/go-zero@v1.4.4/rest/handler/gunziphandler.go:26 +0xe9
+net/http.HandlerFunc.ServeHTTP(0xedb6eceeb?, {0x1ee1bf0?, 0xc0003a5ce0?}, 0x1589c95e2?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+github.com/zeromicro/go-zero/rest/handler.MaxBytesHandler.func2.1({0x1ee1bf0?, 0xc0003a5ce0?}, 0x2d052c0?)
+	/home/xsg/go/pkg/mod/github.com/zeromicro/go-zero@v1.4.4/rest/handler/maxbyteshandler.go:24 +0xff
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x1ee1bf0?, 0xc0003a5ce0?}, 0x0?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+github.com/zeromicro/go-zero/rest/handler.MetricHandler.func1.1({0x1ee1bf0, 0xc0003a5ce0}, 0x0?)
+	/home/xsg/go/pkg/mod/github.com/zeromicro/go-zero@v1.4.4/rest/handler/metrichandler.go:21 +0xd5
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x1ee1bf0?, 0xc0003a5ce0?}, 0x0?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+github.com/zeromicro/go-zero/rest/handler.RecoverHandler.func1({0x1ee1bf0?, 0xc0003a5ce0?}, 0x0?)
+	/home/xsg/go/pkg/mod/github.com/zeromicro/go-zero@v1.4.4/rest/handler/recoverhandler.go:21 +0x83
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x1ee1bf0?, 0xc0003a5ce0?}, 0x0?)
+	/usr/local/go/src/net/http/server.go:2109 +0x2f
+github.com/zeromicro/go-zero/rest/handler.(*timeoutHandler).ServeHTTP.func1()
+	/home/xsg/go/pkg/mod/github.com/zeromicro/go-zero@v1.4.4/rest/handler/timeouthandler.go:79 +0x7c
+created by github.com/zeromicro/go-zero/rest/handler.(*timeoutHandler).ServeHTTP
+	/home/xsg/go/pkg/mod/github.com/zeromicro/go-zero@v1.4.4/rest/handler/timeouthandler.go:73 +0x350
+	caller=internal/log.go:57	trace=04e85285e88c3eaa24f06a94027a8dcc	span=177dbefe32925c64
+2023-02-03 17:46:19	[31;1m error [0m	[HTTP] [103;90;1m 500 [0m - [44;97;1m GET [0m /from/me - 172.20.8.227:50869 - Apifox/1.0.0 (https://www.apifox.cn)
+GET /from/me HTTP/1.1
+Host: 172.20.8.158:8888
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzU1MDM3NzUsImlhdCI6MTY3NTQxNzM3NSwidWlkIjoxfQ.UxJk2J2qU7N9iGVX6UwS6yJs_ny5hs9YEvvx2UQJ09Q
+Connection: keep-alive
+User-Agent: Apifox/1.0.0 (https://www.apifox.cn)
+
+	duration=0.2ms	caller=handler/loghandler.go:162	trace=04e85285e88c3eaa24f06a94027a8dcc	span=177dbefe32925c64
+2023-02-03 18:01:56	[31;1m error [0m	【API-ERR】 : ErrCode:100002，ErrMsg:参数错误
+just for test !
+greet/internal/logic.(*GreetLogic).Greet
+	/home/xsg/zero/greet/internal/logic/greetLogic.go:34
+greet/internal/handler.GreetHandler.func1
+	/home/xsg/zero/greet/internal/handler/greetHandler.go:22
+greet/internal/middleware.(*I18nMiddleware).Handle.func1
+	/home/xsg/zero/greet/internal/middleware/i18nMiddleware.go:104
+net/http.HandlerFunc.ServeHTTP
+	/usr/local/go/src/net/http/server.go:2109
+github.com/zeromicro/go-zero/rest/handler.Authorize.func1.1
+	/home/xsg/go/pkg/mod/github.com/zeromicro/go-zero@v1.4.4/rest/handler/authhandler.go:81
+net/http.HandlerFunc.ServeHTTP
+	/usr/local/go/src/net/http/server.go:2109
+github.com/zeromicro/go-zero/rest/handler.GunzipHandler.func1
+	/home/xsg/go/pkg/mod/github.com/zeromicro/go-zero@v1.4.4/rest/handler/gunziphandler.go:26
+net/http.HandlerFunc.ServeHTTP
+	/usr/local/go/src/net/http/server.go:2109
+github.com/zeromicro/go-zero/rest/handler.MaxBytesHandler.func2.1
+	/home/xsg/go/pkg/mod/github.com/zeromicro/go-zero@v1.4.4/rest/handler/maxbyteshandler.go:24
+net/http.HandlerFunc.ServeHTTP
+	/usr/local/go/src/net/http/server.go:2109
+github.com/zeromicro/go-zero/rest/handler.MetricHandler.func1.1
+	/home/xsg/go/pkg/mod/github.com/zeromicro/go-zero@v1.4.4/rest/handler/metrichandler.go:21
+net/http.HandlerFunc.ServeHTTP
+	/usr/local/go/src/net/http/server.go:2109
+github.com/zeromicro/go-zero/rest/handler.RecoverHandler.func1
+	/home/xsg/go/pkg/mod/github.com/zeromicro/go-zero@v1.4.4/rest/handler/recoverhandler.go:21
+net/http.HandlerFunc.ServeHTTP
+	/usr/local/go/src/net/http/server.go:2109
+github.com/zeromicro/go-zero/rest/handler.(*timeoutHandler).ServeHTTP.func1
+	/home/xsg/go/pkg/mod/github.com/zeromicro/go-zero@v1.4.4/rest/handler/timeouthandler.go:79
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1594 	caller=result/result.go:23	trace=bc9888fc1a9d1c56b690157a373ac74a	span=2c669c604a546f41

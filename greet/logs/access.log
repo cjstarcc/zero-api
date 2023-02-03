@@ -1,0 +1,7 @@
+{"@timestamp":"2023-02-03 17:44:59","caller":"middleware/i18nMiddleware.go:30","content":"Loading language: zh-CN","level":"debug"}
+{"@timestamp":"2023-02-03 17:44:59","caller":"middleware/i18nMiddleware.go:30","content":"Loading language: en-US","level":"debug"}
+2023-02-03 17:46:13	[33;1m debug [0m	Loading language: zh-CN	caller=middleware/i18nMiddleware.go:30
+2023-02-03 17:46:13	[33;1m debug [0m	Loading language: en-US	caller=middleware/i18nMiddleware.go:30
+2023-02-03 18:01:44	[33;1m debug [0m	Loading language: zh-CN	caller=middleware/i18nMiddleware.go:30
+2023-02-03 18:01:44	[33;1m debug [0m	Loading language: en-US	caller=middleware/i18nMiddleware.go:30
+2023-02-03 18:01:56	[34;1m info [0m	[HTTP] [45;97;1m 400 [0m - [44;97;1m GET [0m /from/me - 172.20.8.227:64433 - Apifox/1.0.0 (https://www.apifox.cn)	duration=0.1ms	caller=handler/loghandler.go:160	trace=bc9888fc1a9d1c56b690157a373ac74a	span=2c669c604a546f41

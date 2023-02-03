@@ -1,0 +1,34 @@
+type Request {
+	Name string `path:"name,options=you|me"`
+}
+
+type Response {
+	Message string `json:"message"`
+}
+
+//用户登陆
+type LoginReq {
+	Username string `json:"username"`
+	Password string `json:"password"`
+}
+
+type LoginResp {
+	AccessToken  string `json:"accessToken"`
+	AccessExpire int64  `json:"accessExpire"`
+}
+
+service greet-api {
+	@doc "login"
+	@handler login
+	post /login (LoginReq) returns (LoginResp)
+}
+
+@server (
+	jwt: JwtAuth
+	middleware: I18n
+)
+
+service greet-api {
+	@handler GreetHandler
+	get /from/:name(Request) returns (Response)
+}

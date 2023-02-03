@@ -1,0 +1,30 @@
+Name: greet-api
+Host: 0.0.0.0
+Port: 8888
+lang: # i18相关
+  names: 简体中文|English
+  types: zh-CN|en-US
+  path: etc/locale/
+CacheRedis:
+  - Host: 127.0.0.1:16379
+    Type: node
+Mysql:
+  DataSource: root:123456@tcp(127.0.0.1:13306)/test?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+log:
+  serviceName: greet
+  mode: file
+  encoding: plain
+  timeFormat: "2006-01-02 15:04:05"
+  path: logs
+  level: debug
+  maxbackups: 2
+  maxsize: 1
+  keepdays: 7
+JwtAuth:
+  AccessSecret: uOvKLmVfztaXGpNYd4Z0I1SiT7MweJhl
+  AccessExpire: 86400
+UserRpc:
+  Etcd:
+    Hosts:
+      - 127.0.0.1:12379
+    Key: user.rpc
